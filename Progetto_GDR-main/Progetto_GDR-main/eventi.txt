@@ -1,0 +1,10 @@
+nome, logMessaggio, logSalute, logDissenso, logMalcontento, pahtImmagine
+Giochi al Colosseo, La plebe è distratta dai gladiatori, 0, 0, -20, giochi_colosseo-png
+Distribuzione di terre ai militari, I veterani diventano fedeli proprietari, 0, -20, 0, distribuzione_terre-png
+Riforma del senato, Migliora la stabilità politica, 0, -10 -10, rifrma_senato.png
+Costruzione acquedotti, Miliora l'igene e il consenso, +10, 0 ,-5, costruzione_acquedotti.png
+Invasioni germaniche, I barbari premono sui confini, -25, 0, 0, invasione_germanica.png
+Congiura dei pretoriani, Tradimento all'interno del palazzo, -15, +15, 0, congiura_pretoriani.png
+Carestia improvvisa, Manca pane e il popolo insorge, 0, 0, +20, carestia.png
+
+Pestilenza urbana, L'epidemia fiacca il corpo e lo spirito, -20, 0 +10, pestilenza_urbana.png
