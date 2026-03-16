@@ -4,10 +4,12 @@
  */
 package imperiumsurvival;
 
+import java.io.BufferedReader;
+
 /**
  *
  * @author onorati.nicolo
  */
 public class FileManager {
-    
+    private String file = "eventi.txt";
 }
