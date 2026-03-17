@@ -4,10 +4,8 @@
  */
 package imperiumsurvival;
 
-import java.awt.Font;
 import java.awt.Image;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -91,11 +89,15 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imperiumsurvival/Marco_Aurelio.png"))); // NOI18N
         jButton1.setText("jButton1");
+        getContentPane().add(jButton1);
+        jButton1.setBounds(885, 186, 171, 320);
 
         btn_istruzioni.setText("ISTRUZIONI");
         btn_istruzioni.addActionListener(new java.awt.event.ActionListener() {
@@ -103,11 +105,19 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
                 btn_istruzioniActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_istruzioni);
+        btn_istruzioni.setBounds(1030, 0, 91, 23);
 
+        lbl_titolo.setFont(new java.awt.Font("Trajan Pro", 0, 48)); // NOI18N
+        lbl_titolo.setForeground(new java.awt.Color(204, 204, 204));
         lbl_titolo.setText("IMPERIUM SURVIVAL: L'ALBA DEL SANGUE");
+        getContentPane().add(lbl_titolo);
+        lbl_titolo.setBounds(6, 35, 1096, 120);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imperiumsurvival/Nerone.png"))); // NOI18N
         jButton2.setText("jButton1");
+        getContentPane().add(jButton2);
+        jButton2.setBounds(616, 186, 171, 320);
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imperiumsurvival/Augusto.png"))); // NOI18N
         jButton3.setText("jButton1");
@@ -116,46 +126,18 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(343, 186, 171, 320);
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imperiumsurvival/Giulio_Cesare.png"))); // NOI18N
         jButton4.setText("jButton1");
+        getContentPane().add(jButton4);
+        jButton4.setBounds(73, 186, 171, 320);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(82, 82, 82))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(430, 430, 430)
-                .addComponent(lbl_titolo, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_istruzioni)
-                .addGap(29, 29, 29))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_istruzioni)
-                    .addComponent(lbl_titolo, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imperiumsurvival/fondo.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 1120, 540);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -205,6 +187,7 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbl_titolo;
     // End of variables declaration//GEN-END:variables
 }

@@ -14,8 +14,8 @@ public class ImperiumSurvival {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ScegliPersonaggio sp = new ScegliPersonaggio();
-        sp.setVisible(true);
+        SchermataIniziale si = new SchermataIniziale();
+        si.setVisible(true);
     }
     
 }
