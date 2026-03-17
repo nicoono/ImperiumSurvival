@@ -9,5 +9,20 @@ package imperiumsurvival;
  * @author onorati.nicolo
  */
 public class Evento {
+    private String titolo;
+    private String logMessaggio;
+    private int modSalute;
+    private int modMalcontento;
+    private int modDissenso;
+    private String pahtImmagine;
+
+    public Evento(String titolo, String logMessaggio, int modSalute, int Malcontento, int modDissenso, String pahtImmagine) {
+        this.titolo = titolo;
+        this.logMessaggio = logMessaggio;
+        this.modSalute = modSalute;
+        this.modMalcontento = modMalcontento;
+        this.modDissenso = modDissenso;
+        this.pahtImmagine = pahtImmagine;
+    }
     
 }
