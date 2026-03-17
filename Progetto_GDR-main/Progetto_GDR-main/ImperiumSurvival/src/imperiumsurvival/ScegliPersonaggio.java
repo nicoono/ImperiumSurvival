@@ -23,6 +23,29 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
         
         initComponents();
         
+        btn_car_gc.setOpaque(false);
+        btn_car_gc.setContentAreaFilled(false);
+        btn_car_gc.setBorderPainted(false);
+        
+        btn_car_a.setOpaque(false);
+        btn_car_a.setContentAreaFilled(false);
+        btn_car_a.setBorderPainted(false);
+        
+        
+        btn_car_n.setOpaque(false);
+        btn_car_n.setContentAreaFilled(false);
+        btn_car_n.setBorderPainted(false);
+        
+        
+        btn_car_ma.setOpaque(false);
+        btn_car_ma.setContentAreaFilled(false);
+        btn_car_ma.setBorderPainted(false);
+        
+        
+        
+        
+        
+        
         // 1. Carica l'immagine (Assicurati che il nome file sia identico a quello nella cartella)
         ImageIcon immagineImp = new ImageIcon(getClass().getResource("Giulio_Cesare.png"));
 
@@ -89,6 +112,10 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        btn_car_gc = new javax.swing.JButton();
+        btn_car_a = new javax.swing.JButton();
+        btn_car_n = new javax.swing.JButton();
+        btn_car_ma = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -106,10 +133,10 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_istruzioni);
-        btn_istruzioni.setBounds(1030, 0, 91, 23);
+        btn_istruzioni.setBounds(990, 0, 130, 23);
 
         lbl_titolo.setFont(new java.awt.Font("Trajan Pro", 0, 48)); // NOI18N
-        lbl_titolo.setForeground(new java.awt.Color(204, 204, 204));
+        lbl_titolo.setForeground(new java.awt.Color(153, 153, 153));
         lbl_titolo.setText("IMPERIUM SURVIVAL: L'ALBA DEL SANGUE");
         getContentPane().add(lbl_titolo);
         lbl_titolo.setBounds(6, 35, 1096, 120);
@@ -131,8 +158,53 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imperiumsurvival/Giulio_Cesare.png"))); // NOI18N
         jButton4.setText("jButton1");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton4);
         jButton4.setBounds(73, 186, 171, 320);
+
+        btn_car_gc.setForeground(new java.awt.Color(102, 255, 255));
+        btn_car_gc.setText("caratteristiche");
+        btn_car_gc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_car_gcActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_car_gc);
+        btn_car_gc.setBounds(70, 510, 170, 23);
+
+        btn_car_a.setForeground(new java.awt.Color(102, 255, 255));
+        btn_car_a.setText("caratteristiche");
+        btn_car_a.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_car_aActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_car_a);
+        btn_car_a.setBounds(350, 510, 160, 23);
+
+        btn_car_n.setForeground(new java.awt.Color(102, 255, 255));
+        btn_car_n.setText("caratteristiche");
+        btn_car_n.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_car_nActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_car_n);
+        btn_car_n.setBounds(614, 510, 170, 23);
+
+        btn_car_ma.setForeground(new java.awt.Color(102, 255, 255));
+        btn_car_ma.setText("caratteristiche");
+        btn_car_ma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_car_maActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_car_ma);
+        btn_car_ma.setBounds(884, 510, 170, 23);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imperiumsurvival/fondo.png"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -155,6 +227,75 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
             + "prenderà il comando. La tua scelta segnerà l'eternità.\n\n"
             + "Scegli con saggezza: ogni Imperatore ha punti di forza e oscuri segreti.");
     }//GEN-LAST:event_btn_istruzioniActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        this.dispose();
+        
+        CampoDaGioco cg = new CampoDaGioco();
+        cg.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void btn_car_gcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_car_gcActionPerformed
+        String infoCesare = "<html><body style='width: 300px; padding: 5px;'>"
+        + "<h1 style='color: #8b0000; margin-bottom: 0;'>GIULIO CESARE</h1>"
+        + "<i style='color: #7f8c8d;'>\"Alea Iacta Est - Il dado è tratto.\"</i><br><br>"
+        + "<b style='color: #27ae60;'>BONUS PASSIVO: Disciplina Ferrea</b><br>"
+        + "• <b style='color: #c0392b;'>-20 Dissenso Militare</b> iniziale.<br>"
+        + "Le legioni sono ai tuoi ordini e difficilmente oseranno tradirti all'inizio.<br><br>"
+        + "<b style='color: #8b0000;'>ABILITÀ SPECIALE: Azzardo del Rubicone</b><br>"
+        + "Azzera istantaneamente il <b style='color: #27ae60;'>Malcontento Popolare</b> grazie al tuo carisma,<br>"
+        + "ma il Senato trema: ricevi subito <b style='color: #c0392b;'>+20 Dissenso Militare</b>.<br><br>"
+        + "<b>RISCHIO:</b> Attento alle Idi di Marzo! Un eccesso di potere militare <br>"
+        + "può portare i complottisti a colpirti nell'ombra."
+        + "</body></html>";
+
+        JOptionPane.showMessageDialog(null, infoCesare, "Dettagli Imperatore", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_btn_car_gcActionPerformed
+
+    private void btn_car_aActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_car_aActionPerformed
+        String infoAugusto = "<html><body style='width: 300px; padding: 5px;'>"
+        + "<h1 style='color: #2980b9; margin-bottom: 0;'>AUGUSTO</h1>"
+        + "<i style='color: #7f8c8d;'>\"Ho trovato una città di mattoni, ve la restituisco di marmo.\"</i><br><br>"
+        + "<b style='color: #27ae60;'>BONUS PASSIVO:</b><br>"
+        + "• <b style='color: #c0392b;'>+30 Salute</b> iniziale (Resistenza superiore).<br><br>"
+        + "<b style='color: #2980b9;'>ABILITÀ SPECIALE: Pax Romana</b><br>"
+        + "Stabilizza l'Impero rigenerando <b style='color: #27ae60;'>+20 Salute</b> e <br>"
+        + "riducendo di <b style='color: #27ae60;'>10 punti</b> sia Malcontento che Dissenso.<br><br>"
+        + "<b>CONSIGLIO:</b> Ideale per chi vuole una partita lunga e sicura."
+        + "</body></html>";
+
+        JOptionPane.showMessageDialog(null, infoAugusto, "Dettagli Imperatore", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btn_car_aActionPerformed
+
+    private void btn_car_nActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_car_nActionPerformed
+        String infoNerone = "<html><body style='width: 300px; padding: 5px;'>"
+        + "<h1 style='color: #e67e22; margin-bottom: 0;'>NERONE</h1>"
+        + "<i style='color: #7f8c8d;'>\"Quale artista muore con me!\"</i><br><br>"
+        + "<b style='color: #27ae60;'>BONUS PASSIVO:</b><br>"
+        + "• <b style='color: #c0392b;'>-20 Malcontento Popolare</b> (Il popolo ti ama).<br><br>"
+        + "<b style='color: #d35400;'>ABILITÀ SPECIALE: Grande Incendio</b><br>"
+        + "Elimina ogni minaccia militare (<b style='color: #27ae60;'>Dissenso a 0</b>), <br>"
+        + "ma lo stress estremo ti costa <b style='color: #c0392b;'>-30 Salute</b>.<br><br>"
+        + "<b>RISCHIO:</b> Attento a non bruciare te stesso insieme a Roma!"
+        + "</body></html>";
+
+        JOptionPane.showMessageDialog(null, infoNerone, "Dettagli Imperatore", JOptionPane.WARNING_MESSAGE);
+    }//GEN-LAST:event_btn_car_nActionPerformed
+
+    private void btn_car_maActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_car_maActionPerformed
+        String infoMarcoAurelio = "<html><body style='width: 300px; padding: 5px;'>"
+        + "<h1 style='color: #8e44ad; margin-bottom: 0;'>MARCO AURELIO</h1>"
+        + "<i style='color: #7f8c8d;'>\"La felicità dipende dalla qualità dei tuoi pensieri.\"</i><br><br>"
+        + "<b style='color: #27ae60;'>BONUS PASSIVO:</b><br>"
+        + "• <b style='color: #c0392b;'>+15 Salute</b> e <b style='color: #c0392b;'>-10 Dissenso</b> iniziale.<br><br>"
+        + "<b style='color: #8e44ad;'>ABILITÀ SPECIALE: Meditazioni</b><br>"
+        + "Per <b style='color: #2980b9;'>3 turni</b> le tue statistiche sono bloccate e <br>"
+        + "i danni degli eventi negativi sono <b style='color: #27ae60;'>dimezzati</b>.<br><br>"
+        + "<b>NOTA:</b> Durante la meditazione non ricevi bonus dagli eventi positivi."
+        + "</body></html>";
+
+        JOptionPane.showMessageDialog(null, infoMarcoAurelio, "Dettagli Imperatore", JOptionPane.QUESTION_MESSAGE);
+    }//GEN-LAST:event_btn_car_maActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,6 +323,10 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_car_a;
+    private javax.swing.JButton btn_car_gc;
+    private javax.swing.JButton btn_car_ma;
+    private javax.swing.JButton btn_car_n;
     private javax.swing.JButton btn_istruzioni;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
