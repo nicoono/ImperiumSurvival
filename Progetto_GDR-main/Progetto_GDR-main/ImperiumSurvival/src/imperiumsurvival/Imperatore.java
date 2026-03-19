@@ -9,9 +9,18 @@ package imperiumsurvival;
  * @author onorati.nicolo
  */
 public abstract class Imperatore {
-    private int salute;
-    private int malcontento;
-    private int dissenso;
+    protected String nome;
+    protected int salute;
+    protected int malcontento;
+    protected int dissenso;
+    protected String pathImmagine;
+    
+    public Imperatore(String nome, int salute, int malcontento, int dissenso) {
+        this.nome = nome;
+        this.salute = salute;
+        this.malcontento = malcontento;
+        this.dissenso = dissenso;
+    }
 
     public int getSalute() {
         return salute;
@@ -25,12 +34,33 @@ public abstract class Imperatore {
         return dissenso;
     }
     
-    public abstract void usaAbilita();
-    public void aggiornaStstusTurno(){
-        
+    
+    public String getPathImmagine() {
+        return pathImmagine;
     }
     
+    public abstract void usaAbilita();
+    
+    
+    public void aggiornaStstusTurno(){
+        malcontento += 5;
+        dissenso+=5;
+    }
+    
+    
+    
+    
     public void applicaEvento(Evento e){
+        
+        if(salute > 100){
+            salute=100;
+        }
+        if(malcontento < 0){
+            malcontento = 0;
+        }
+        if(dissenso < 0){
+            dissenso = 0;
+        }
         
     }
 }

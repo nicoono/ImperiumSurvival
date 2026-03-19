@@ -9,5 +9,13 @@ package imperiumsurvival;
  * @author onorati.nicolo
  */
 public class Augusto extends Imperatore {
+
+    public Augusto(String nome, int salute, int malcontento, int dissenso) {
+        super("Augusto", 130, 50, 50);
+    }
+
+    @Override
+    public void usaAbilita() {
+    }
     
 }

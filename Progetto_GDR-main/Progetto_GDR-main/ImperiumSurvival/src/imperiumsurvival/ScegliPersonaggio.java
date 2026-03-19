@@ -229,10 +229,18 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_istruzioniActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        this.dispose();
-        
+        // 1. Crea l'istanza della form CampoDaGioco
         CampoDaGioco cg = new CampoDaGioco();
+    
+        // 2. Crea l'oggetto imperatore (Giulio Cesare in questo caso)
+        Imperatore scelto = new GiulioCesare();
+    
+        // 3. Passa l'oggetto tramite il metodo setter
+        cg.setImperatore(scelto);
+    
+        // 4. Mostra la finestra e chiudi quella attuale
         cg.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void btn_car_gcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_car_gcActionPerformed
