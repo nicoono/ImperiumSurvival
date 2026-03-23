@@ -19,6 +19,7 @@ public class CampoDaGioco extends javax.swing.JFrame {
      * Creates new form CampoDaGioco
      */
     private Imperatore imperatoreCorrente;
+    private GameManager gameManager;
 
     public CampoDaGioco() {
         initComponents();
@@ -32,6 +33,7 @@ public class CampoDaGioco extends javax.swing.JFrame {
     // 2. Metodo per inserire i dati (FUORI dal costruttore)
     public void setImperatore(Imperatore scelto) {
         this.imperatoreCorrente = scelto;
+        this.gameManager = new GameManager(scelto);
         
         // Carica l'immagine nella Label lbl_pers
         ImageIcon icon = new ImageIcon(getClass().getResource(scelto.getPathImmagine()));
@@ -63,9 +65,9 @@ public class CampoDaGioco extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtA_eventi = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btn_marcia = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -95,21 +97,26 @@ public class CampoDaGioco extends javax.swing.JFrame {
         getContentPane().add(jLabel4);
         jLabel4.setBounds(180, 310, 70, 16);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtA_eventi.setColumns(20);
+        txtA_eventi.setRows(5);
+        jScrollPane1.setViewportView(txtA_eventi);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(280, 10, 400, 86);
+        jScrollPane1.setBounds(300, 10, 400, 86);
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("IMMAGINI EVENTI");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(780, 70, 190, 140);
 
-        jButton1.setText("MARCIA");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(770, 280, 150, 110);
+        btn_marcia.setText("MARCIA");
+        btn_marcia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_marciaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_marcia);
+        btn_marcia.setBounds(900, 310, 130, 80);
 
         jButton2.setText("ABILITA' SPECIALE");
         getContentPane().add(jButton2);
@@ -138,6 +145,44 @@ public class CampoDaGioco extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_marciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_marciaActionPerformed
+        
+               
+        gameManager.cliccaMArcia();
+        Evento event = gameManager.getUltimoEvento();
+        
+        if(event != null){
+            txtA_eventi.append("TURNO: " + gameManager.getTurno() + "\n");
+            txtA_eventi.append("EVENTO: " + event.getLogTitolo() + "\n");
+            txtA_eventi.append("ESIT: " + event.getLogMessaggio() + "\n");
+            txtA_eventi.append("---------------------------------\n");
+        }
+        else{
+            txtA_eventi.append("Errore: Nessun evento estratto!\n");
+        }
+        
+        try {
+            // Aggiungiamo "/Immagine/" prima del nome del file
+            String percorsoImmagine = "/imperiumsurvival/Immagine/" + event.getPahtImmagine().trim();
+    
+            java.net.URL imgURL = getClass().getResource(percorsoImmagine);
+    
+            if (imgURL != null) {
+                ImageIcon iconEv = new ImageIcon(imgURL);
+                Image imgScaled = iconEv.getImage().getScaledInstance(jLabel5.getWidth(), jLabel5.getHeight(), Image.SCALE_SMOOTH);
+                jLabel5.setIcon(new ImageIcon(imgScaled));
+                jLabel5.setText(""); 
+        } else {
+            throw new Exception("URL nullo per: " + percorsoImmagine);
+        }
+        } catch (Exception e) {
+            System.err.println("Errore caricamento: " + e.getMessage());
+            jLabel5.setIcon(null);
+            jLabel5.setText("Immagine non trovata");
+        }
+        
+    }//GEN-LAST:event_btn_marciaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -164,7 +209,7 @@ public class CampoDaGioco extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btn_marcia;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -174,8 +219,8 @@ public class CampoDaGioco extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lbl_pers;
     private javax.swing.JLabel sfondo;
+    private javax.swing.JTextArea txtA_eventi;
     // End of variables declaration//GEN-END:variables
 }

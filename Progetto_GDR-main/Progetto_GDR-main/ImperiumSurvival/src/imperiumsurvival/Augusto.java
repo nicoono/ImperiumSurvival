@@ -10,9 +10,13 @@ package imperiumsurvival;
  */
 public class Augusto extends Imperatore {
 
-    public Augusto(String nome, int salute, int malcontento, int dissenso) {
+    Augusto() {
         super("Augusto", 130, 50, 50);
+        
+            this.pathImmagine = "/imperiumsurvival/Augusto.png";
     }
+
+    
 
     @Override
     public void usaAbilita() {

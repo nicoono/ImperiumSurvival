@@ -15,18 +15,22 @@ public class GameManager {
     private Imperatore giocatore;
     private List<Evento> eventiDisponibili;
     private CampoDaGioco gui;
+    private Evento ultimoEvento;
+    
 
-    public GameManager(int turno, Imperatore giocatore, List<Evento> eventiDisponibili, CampoDaGioco GIU) {
-        this.turno = 1;
+    public GameManager() {
+    }
+
+    public GameManager(Imperatore giocatore) {
+        this.turno = 0;
         this.giocatore = giocatore;
-        this.eventiDisponibili = eventiDisponibili;
-        this.gui = gui;
+        this.eventiDisponibili = new ArrayList<>();
+        this.inizializzaGiovo();
     }
     
     public void inizializzaGiovo(){
         FileManager fm = new FileManager();
         this.eventiDisponibili = fm.leggiFile();
-        
         
         if(eventiDisponibili.isEmpty()){
             System.err.println("Nessun evento caricato nel file");
@@ -36,8 +40,14 @@ public class GameManager {
     
     
     public void cliccaMArcia(){
+        /*if (eventiDisponibili == null || eventiDisponibili.isEmpty()) {
+        System.err.println("ERRORE: Nessun evento disponibile! Controlla il file .txt");
+        return;
+        }*/
         Random r = new Random();
         Evento estratto = eventiDisponibili.get(r.nextInt(eventiDisponibili.size()));
+        this.ultimoEvento = estratto;
+        
         turno++;
         
         giocatore.applicaEvento(estratto);
@@ -47,11 +57,17 @@ public class GameManager {
         controllaGameOver();
     }
     
+    public Evento getUltimoEvento(){
+        return ultimoEvento;
+    }
+    
     
     public void cliccaAbilita(){
         giocatore.usaAbilita();
         controllaGameOver();
     }
+    
+    
     
     public void controllaGameOver(){
         boolean perso=false;
@@ -65,4 +81,10 @@ public class GameManager {
             perso = true;
         }
     }
+    
+    
+    public int getTurno(){
+        return turno;
+    }
 }
+

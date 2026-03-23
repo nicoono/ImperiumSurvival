@@ -123,6 +123,11 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imperiumsurvival/Marco_Aurelio.png"))); // NOI18N
         jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1);
         jButton1.setBounds(885, 186, 171, 320);
 
@@ -139,10 +144,15 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
         lbl_titolo.setForeground(new java.awt.Color(153, 153, 153));
         lbl_titolo.setText("IMPERIUM SURVIVAL: L'ALBA DEL SANGUE");
         getContentPane().add(lbl_titolo);
-        lbl_titolo.setBounds(6, 35, 1096, 120);
+        lbl_titolo.setBounds(6, 35, 994, 120);
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imperiumsurvival/Nerone.png"))); // NOI18N
         jButton2.setText("jButton1");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2);
         jButton2.setBounds(616, 186, 171, 320);
 
@@ -215,7 +225,12 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+       CampoDaGioco finestraGioco = new CampoDaGioco();
+    
+        finestraGioco.setImperatore(new Augusto());
+    
+        finestraGioco.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btn_istruzioniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_istruzioniActionPerformed
@@ -229,17 +244,11 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_istruzioniActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // 1. Crea l'istanza della form CampoDaGioco
-        CampoDaGioco cg = new CampoDaGioco();
+        CampoDaGioco finestraGioco = new CampoDaGioco();
     
-        // 2. Crea l'oggetto imperatore (Giulio Cesare in questo caso)
-        Imperatore scelto = new GiulioCesare();
+        finestraGioco.setImperatore(new GiulioCesare());
     
-        // 3. Passa l'oggetto tramite il metodo setter
-        cg.setImperatore(scelto);
-    
-        // 4. Mostra la finestra e chiudi quella attuale
-        cg.setVisible(true);
+        finestraGioco.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -304,6 +313,24 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
 
         JOptionPane.showMessageDialog(null, infoMarcoAurelio, "Dettagli Imperatore", JOptionPane.QUESTION_MESSAGE);
     }//GEN-LAST:event_btn_car_maActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        CampoDaGioco finestraGioco = new CampoDaGioco();
+    
+        finestraGioco.setImperatore(new Nerone());
+    
+        finestraGioco.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        CampoDaGioco finestraGioco = new CampoDaGioco();
+    
+        finestraGioco.setImperatore(new MarcoAurelio());
+    
+        finestraGioco.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

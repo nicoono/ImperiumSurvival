@@ -10,8 +10,10 @@ package imperiumsurvival;
  */
 public class Nerone extends Imperatore {
 
-    public Nerone(String nome, int salute, int malcontento, int dissenso) {
+    Nerone() {
         super("Nerone", 100, 30, 50);
+        
+        this.pathImmagine = "/imperiumsurvival/Nerone.png";
     }
 
     @Override

@@ -24,5 +24,20 @@ public class Evento {
         this.modDissenso = modDissenso;
         this.pahtImmagine = pahtImmagine;
     }
+
+    public String getLogTitolo() {
+        return titolo;
+    }
+
+    public String getLogMessaggio() {
+        return logMessaggio;
+    }
+
+    public String getPahtImmagine() {
+        return pahtImmagine;
+    }
+    
+    
+    
     
 }

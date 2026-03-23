@@ -10,8 +10,10 @@ package imperiumsurvival;
  */
 public class MarcoAurelio extends Imperatore {
 
-    public MarcoAurelio(String nome, int salute, int malcontento, int dissenso) {
-        super("Marco Aurelio", 115, 50, 40);
+    MarcoAurelio() {
+        super("Nerone", 100, 30, 50);
+        
+        this.pathImmagine = "/imperiumsurvival/Marco_Aurelio.png";    
     }
 
     @Override

@@ -22,12 +22,12 @@ public class FileManager {
             
             while((riga = br.readLine()) != null){
                 String[] parti = riga.split(",");
-                String nome = parti[0];
-                String messaggio = parti[1];
-                int salute = Integer.parseInt(parti[2]);
-                int dissenso = Integer.parseInt(parti[3]);
-                int malcontento = Integer.parseInt(parti[3]);
-                String path = parti[5];
+                String nome = parti[0].trim();
+                String messaggio = parti[1].trim();
+                int salute = Integer.parseInt(parti[2].trim());
+                int dissenso = Integer.parseInt(parti[3].trim());
+                int malcontento = Integer.parseInt(parti[4].trim());
+                String path = parti[5].trim();
                 
                 Evento e = new Evento(nome, messaggio, salute, dissenso, malcontento, path);
                 listaEventi.add(e);
@@ -37,6 +37,7 @@ public class FileManager {
         catch(IOException e){
             System.out.println("Errore nella lettura del file");
         }
+        //System.out.println("DEBUG: Ho letto " + listaEventi.size() + " eventi dal file."); // AGGIUNGI QUESTA RIGA
         return listaEventi;
     }
 }
