@@ -36,6 +36,18 @@ public class Evento {
     public String getPahtImmagine() {
         return pahtImmagine;
     }
+
+    public int getModSalute() {
+        return modSalute;
+    }
+
+    public int getModMalcontento() {
+        return modMalcontento;
+    }
+
+    public int getModDissenso() {
+        return modDissenso;
+    }
     
     
     

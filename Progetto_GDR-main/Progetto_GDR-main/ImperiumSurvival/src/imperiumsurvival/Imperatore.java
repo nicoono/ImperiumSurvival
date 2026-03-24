@@ -45,18 +45,29 @@ public abstract class Imperatore {
     public void aggiornaStstusTurno(){
         malcontento += 5;
         dissenso+=5;
+        
+        
     }
     
     
     
     
     public void applicaEvento(Evento e){
+        this.salute += e.getModSalute();
+        this.dissenso+= e.getModDissenso();
+        this.malcontento+=e.getModMalcontento();
         
         if(salute > 100){
             salute=100;
         }
         if(malcontento < 0){
             malcontento = 0;
+        }
+        if(malcontento > 100){
+            malcontento = 100;
+        }
+        if(dissenso > 100){
+            dissenso = 100;
         }
         if(dissenso < 0){
             dissenso = 0;

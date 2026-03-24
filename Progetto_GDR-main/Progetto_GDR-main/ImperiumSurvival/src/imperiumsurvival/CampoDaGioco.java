@@ -23,6 +23,7 @@ public class CampoDaGioco extends javax.swing.JFrame {
 
     public CampoDaGioco() {
         initComponents();
+        this.setSize(1040, 400);
         
         // Impostazione dello sfondo (questo va bene nel costruttore)
         ImageIcon s = new ImageIcon(getClass().getResource("sfondo_battaglia.png"));
@@ -44,9 +45,9 @@ public class CampoDaGioco extends javax.swing.JFrame {
         lbl_pers.setText("");
         
        
-        jLabel7.setText(String.valueOf(scelto.getSalute()));
-        jLabel8.setText(String.valueOf(scelto.getDissenso()));
-        jLabel6.setText(String.valueOf(scelto.getMalcontento()));
+        lbl_salute.setText(String.valueOf(scelto.getSalute()));
+        lbl_dissenso.setText(String.valueOf(scelto.getDissenso()));
+        lbl_malcontento.setText(String.valueOf(scelto.getMalcontento()));
     }
         
              
@@ -68,10 +69,10 @@ public class CampoDaGioco extends javax.swing.JFrame {
         txtA_eventi = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
         btn_marcia = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        btn_abilitaSpeciale = new javax.swing.JButton();
+        lbl_malcontento = new javax.swing.JLabel();
+        lbl_salute = new javax.swing.JLabel();
+        lbl_dissenso = new javax.swing.JLabel();
         sfondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,7 +81,7 @@ public class CampoDaGioco extends javax.swing.JFrame {
         lbl_pers.setForeground(new java.awt.Color(255, 255, 255));
         lbl_pers.setText("PERSONAGGIO");
         getContentPane().add(lbl_pers);
-        lbl_pers.setBounds(80, 110, 100, 140);
+        lbl_pers.setBounds(10, 80, 160, 280);
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("MALCONTENTO:");
@@ -106,8 +107,9 @@ public class CampoDaGioco extends javax.swing.JFrame {
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("IMMAGINI EVENTI");
+        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(780, 70, 190, 140);
+        jLabel5.setBounds(710, 20, 290, 280);
 
         btn_marcia.setText("MARCIA");
         btn_marcia.addActionListener(new java.awt.event.ActionListener() {
@@ -118,24 +120,24 @@ public class CampoDaGioco extends javax.swing.JFrame {
         getContentPane().add(btn_marcia);
         btn_marcia.setBounds(900, 310, 130, 80);
 
-        jButton2.setText("ABILITA' SPECIALE");
-        getContentPane().add(jButton2);
-        jButton2.setBounds(420, 100, 140, 23);
+        btn_abilitaSpeciale.setText("ABILITA' SPECIALE");
+        getContentPane().add(btn_abilitaSpeciale);
+        btn_abilitaSpeciale.setBounds(420, 100, 140, 23);
 
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("0");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(280, 340, 30, 16);
+        lbl_malcontento.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_malcontento.setText("0");
+        getContentPane().add(lbl_malcontento);
+        lbl_malcontento.setBounds(280, 340, 30, 16);
 
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("0");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(240, 280, 30, 16);
+        lbl_salute.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_salute.setText("0");
+        getContentPane().add(lbl_salute);
+        lbl_salute.setBounds(240, 280, 30, 16);
 
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("0");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(260, 310, 30, 16);
+        lbl_dissenso.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_dissenso.setText("0");
+        getContentPane().add(lbl_dissenso);
+        lbl_dissenso.setBounds(260, 310, 30, 16);
 
         sfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imperiumsurvival/sfondo_battaglia.png"))); // NOI18N
         sfondo.setText("jLabel1");
@@ -156,6 +158,12 @@ public class CampoDaGioco extends javax.swing.JFrame {
             txtA_eventi.append("EVENTO: " + event.getLogTitolo() + "\n");
             txtA_eventi.append("ESIT: " + event.getLogMessaggio() + "\n");
             txtA_eventi.append("---------------------------------\n");
+            
+            lbl_salute.setText(String.valueOf(imperatoreCorrente.getSalute()));
+            lbl_dissenso.setText(String.valueOf(imperatoreCorrente.getDissenso()));
+            lbl_malcontento.setText(String.valueOf(imperatoreCorrente.getMalcontento()));
+            
+            gameManager.controllaGameOver();
         }
         else{
             txtA_eventi.append("Errore: Nessun evento estratto!\n");
@@ -209,17 +217,17 @@ public class CampoDaGioco extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_abilitaSpeciale;
     private javax.swing.JButton btn_marcia;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbl_dissenso;
+    private javax.swing.JLabel lbl_malcontento;
     private javax.swing.JLabel lbl_pers;
+    private javax.swing.JLabel lbl_salute;
     private javax.swing.JLabel sfondo;
     private javax.swing.JTextArea txtA_eventi;
     // End of variables declaration//GEN-END:variables
