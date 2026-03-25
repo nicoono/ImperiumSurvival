@@ -156,7 +156,7 @@ public class CampoDaGioco extends javax.swing.JFrame {
         if(event != null){
             txtA_eventi.append("TURNO: " + gameManager.getTurno() + "\n");
             txtA_eventi.append("EVENTO: " + event.getLogTitolo() + "\n");
-            txtA_eventi.append("ESIT: " + event.getLogMessaggio() + "\n");
+            txtA_eventi.append("ESITO: " + event.getLogMessaggio() + "\n");
             txtA_eventi.append("---------------------------------\n");
             
             lbl_salute.setText(String.valueOf(imperatoreCorrente.getSalute()));

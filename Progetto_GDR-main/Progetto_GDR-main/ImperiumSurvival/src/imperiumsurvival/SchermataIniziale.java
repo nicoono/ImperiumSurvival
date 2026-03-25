@@ -21,7 +21,7 @@ public class SchermataIniziale extends javax.swing.JFrame {
      */
     public SchermataIniziale() {
         initComponents();
-        
+        this.setSize(1540,709);
         
         // 1. Carica l'immagine (Assicurati che il nome file sia identico a quello nella cartella)
         ImageIcon iniziale = new ImageIcon(getClass().getResource("schermata_iniziale.png"));
@@ -69,9 +69,8 @@ public class SchermataIniziale extends javax.swing.JFrame {
         jButton1.setBounds(440, 290, 260, 70);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imperiumsurvival/schermata_iniziale.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(23, 6, 1160, 650);
+        jLabel1.setBounds(3, -4, 1540, 710);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

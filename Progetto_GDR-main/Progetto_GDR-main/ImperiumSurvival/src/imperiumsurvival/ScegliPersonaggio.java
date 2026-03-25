@@ -22,6 +22,7 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
     public ScegliPersonaggio() {
         
         initComponents();
+        this.setSize(1121,542);
         
         btn_car_gc.setOpaque(false);
         btn_car_gc.setContentAreaFilled(false);
