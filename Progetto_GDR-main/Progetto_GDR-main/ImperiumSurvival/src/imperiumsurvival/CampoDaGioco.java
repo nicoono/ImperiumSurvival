@@ -107,7 +107,6 @@ public class CampoDaGioco extends javax.swing.JFrame {
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("IMMAGINI EVENTI");
-        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         getContentPane().add(jLabel5);
         jLabel5.setBounds(710, 20, 290, 280);
 
@@ -121,6 +120,11 @@ public class CampoDaGioco extends javax.swing.JFrame {
         btn_marcia.setBounds(900, 310, 130, 80);
 
         btn_abilitaSpeciale.setText("ABILITA' SPECIALE");
+        btn_abilitaSpeciale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_abilitaSpecialeActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_abilitaSpeciale);
         btn_abilitaSpeciale.setBounds(420, 100, 140, 23);
 
@@ -190,6 +194,19 @@ public class CampoDaGioco extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btn_marciaActionPerformed
+
+    private void btn_abilitaSpecialeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_abilitaSpecialeActionPerformed
+        gameManager.cliccaAbilita();
+        
+        lbl_salute.setText(String.valueOf(imperatoreCorrente.getSalute()));
+        lbl_dissenso.setText(String.valueOf(imperatoreCorrente.getDissenso()));
+        lbl_malcontento.setText(String.valueOf(imperatoreCorrente.getMalcontento()));
+        
+        txtA_eventi.append("!!!ATTIVAZIONE ABILITA' SPECIALE!!!\n");
+        txtA_eventi.append("---------------------------------------");
+        
+        btn_abilitaSpeciale.setEnabled(false);
+    }//GEN-LAST:event_btn_abilitaSpecialeActionPerformed
 
     /**
      * @param args the command line arguments
