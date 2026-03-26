@@ -168,6 +168,10 @@ public class CampoDaGioco extends javax.swing.JFrame {
             lbl_malcontento.setText(String.valueOf(imperatoreCorrente.getMalcontento()));
             
             gameManager.controllaGameOver();
+            if(gameManager.controllaGameOver() == 1){
+                //salva su classifica
+                this.setVisible(false);
+            }
         }
         else{
             txtA_eventi.append("Errore: Nessun evento estratto!\n");

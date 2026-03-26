@@ -5,6 +5,7 @@
 package imperiumsurvival;
 
 import java.util.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -69,16 +70,25 @@ public class GameManager {
     
     
     
-    public void controllaGameOver(){
+    public int controllaGameOver(){
         boolean perso=false;
         if(giocatore.getSalute() <= 0){
             perso = true;
+            JOptionPane.showMessageDialog(null, "Sei caduto in battaglia o per malattia. L'Impero piange il suo leader");
+            return 1;
         }
         else if(giocatore.getMalcontento() >= 100){
             perso=true;
+            JOptionPane.showMessageDialog(null, "Il popolo ha dato fuoco al palazzo. La tua testa viene portata in trionfo per le strade di Roma");
+            return 1;
         }
         else if(giocatore.getDissenso() >= 100){
             perso = true;
+            JOptionPane.showMessageDialog(null, "Le legioni ti hanno tradito. I Pretoriani sono entrati nelle tue stanze... le Idi di Marzo sono tornate");
+            return 1;
+        }
+        else{
+            return 0;
         }
     }
     
