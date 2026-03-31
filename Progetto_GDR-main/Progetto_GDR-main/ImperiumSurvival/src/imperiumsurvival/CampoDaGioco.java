@@ -163,9 +163,9 @@ public class CampoDaGioco extends javax.swing.JFrame {
             txtA_eventi.append("ESITO: " + event.getLogMessaggio() + "\n");
             txtA_eventi.append("---------------------------------\n");
             
-            lbl_salute.setText(String.valueOf(imperatoreCorrente.getSalute()));
-            lbl_dissenso.setText(String.valueOf(imperatoreCorrente.getDissenso()));
-            lbl_malcontento.setText(String.valueOf(imperatoreCorrente.getMalcontento()));
+            lbl_salute.setText(String.valueOf(gameManager.getImperatore().getSalute()));
+            lbl_dissenso.setText(String.valueOf(gameManager.getImperatore().getDissenso()));
+            lbl_malcontento.setText(String.valueOf(gameManager.getImperatore().getMalcontento()));
             
             gameManager.controllaGameOver();
             if(gameManager.controllaGameOver() == 1){
@@ -202,9 +202,9 @@ public class CampoDaGioco extends javax.swing.JFrame {
     private void btn_abilitaSpecialeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_abilitaSpecialeActionPerformed
         gameManager.cliccaAbilita();
         
-        lbl_salute.setText(String.valueOf(imperatoreCorrente.getSalute()));
-        lbl_dissenso.setText(String.valueOf(imperatoreCorrente.getDissenso()));
-        lbl_malcontento.setText(String.valueOf(imperatoreCorrente.getMalcontento()));
+        lbl_salute.setText(String.valueOf(gameManager.getImperatore().getSalute()));
+        lbl_dissenso.setText(String.valueOf(gameManager.getImperatore().getDissenso()));
+        lbl_malcontento.setText(String.valueOf(gameManager.getImperatore().getMalcontento()));
         
         txtA_eventi.append("!!!ATTIVAZIONE ABILITA' SPECIALE!!!\n");
         txtA_eventi.append("---------------------------------------");

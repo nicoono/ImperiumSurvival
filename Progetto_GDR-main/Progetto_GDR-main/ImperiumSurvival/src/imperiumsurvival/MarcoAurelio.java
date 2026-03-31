@@ -11,7 +11,7 @@ package imperiumsurvival;
 public class MarcoAurelio extends Imperatore {
 
     MarcoAurelio() {
-        super("Nerone", 100, 30, 50);
+        super("Nerone", 115, 40, 50);
         
         this.pathImmagine = "/imperiumsurvival/Marco_Aurelio.png";    
     }

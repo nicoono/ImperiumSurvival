@@ -62,7 +62,9 @@ public class GameManager {
         return ultimoEvento;
     }
     
-    
+    public Imperatore getImperatore() {
+        return this.giocatore;
+    }
     public void cliccaAbilita(){
         giocatore.usaAbilita();
         controllaGameOver();

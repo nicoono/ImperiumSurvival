@@ -57,8 +57,8 @@ public abstract class Imperatore {
         this.dissenso+= e.getModDissenso();
         this.malcontento+=e.getModMalcontento();
         
-        if(salute > 100){
-            salute=100;
+        if(salute > 115){
+            salute=115;
         }
         if(malcontento < 0){
             malcontento = 0;
