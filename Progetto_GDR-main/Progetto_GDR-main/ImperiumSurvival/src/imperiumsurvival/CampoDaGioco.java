@@ -167,10 +167,11 @@ public class CampoDaGioco extends javax.swing.JFrame {
             lbl_dissenso.setText(String.valueOf(gameManager.getImperatore().getDissenso()));
             lbl_malcontento.setText(String.valueOf(gameManager.getImperatore().getMalcontento()));
             
-            gameManager.controllaGameOver();
+            
             if(gameManager.controllaGameOver() == 1){
                 //salva su classifica
-                this.setVisible(false);
+                //da fare ancora salvataggio
+                this.dispose();
             }
         }
         else{
