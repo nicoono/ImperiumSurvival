@@ -4,6 +4,8 @@
  */
 package imperiumsurvival;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author onorati.nicolo
@@ -11,13 +13,17 @@ package imperiumsurvival;
 public class Nerone extends Imperatore {
 
     Nerone() {
-        super("Nerone", 100, 30, 50);
+        super("Nerone", 100, 10, 30);
         
         this.pathImmagine = "/imperiumsurvival/Nerone.png";
     }
 
     @Override
     public void usaAbilita() {
+        JOptionPane.showMessageDialog(null, "Nerone ha dato fuoco a Roma!\n" +"Il Dissenso è AZZERATO, ma l'incendio ti è costato 30 Salute.");
+        
+        this.dissenso=0;
+        this.salute -= 30;
     }
     
 }

@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 public class Augusto extends Imperatore {
 
     Augusto() {
-        super("Augusto", 130, 50, 50);
+        super("Augusto", 130, 30, 30);
         
             this.pathImmagine = "/imperiumsurvival/Augusto.png";
     }
