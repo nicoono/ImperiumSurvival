@@ -40,4 +40,56 @@ public class FileManager {
         
         return listaEventi;
     }
+    
+    public void salvaPartitaCSV(Imperatore imp, String nomeFile){
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomeFile + ".csv"))){
+            bw.write("Nome,Salute,Malcontento,Dissenso,TurniScudo");
+            bw.newLine();
+            bw.write(imp.nome + "," + imp.salute + "," + imp.malcontento + "," + imp.dissenso + "," + imp.turniProtezione);
+            System.out.println("Salvataggio CSV creato");
+        }
+        catch(IOException e){
+            System.out.println("Errore salvataggio CSV");
+        }
+    }
+    public Imperatore caricaPartitaCSV(String nomeFile) {
+        try (BufferedReader br = new BufferedReader(new FileReader(nomeFile + ".csv"))) {
+            br.readLine();
+            String riga = br.readLine();
+
+            if (riga != null) {
+                String[] dati = riga.split(",");
+                String nome = dati[0];
+                int salute = Integer.parseInt(dati[1]);
+                int malcontento = Integer.parseInt(dati[2]);
+                int dissenso = Integer.parseInt(dati[3]);
+                int protezione = Integer.parseInt(dati[4]);
+
+                Imperatore caricato = null;
+
+                if (nome.equals("Augusto")) {
+                    caricato = new Augusto();
+                } else if (nome.equals("Giulio Cesare")) {
+                    caricato = new GiulioCesare();
+                } else if (nome.equals("Nerone")) {
+                    caricato = new Nerone();
+                } else if (nome.equals("Marco Aurelio")) {
+                    caricato = new MarcoAurelio();
+                }
+
+                if (caricato != null) {
+                    caricato.salute = salute;
+                    caricato.dissenso = dissenso;
+                    caricato.malcontento = malcontento;
+                    caricato.turniProtezione = protezione;
+                }
+                return caricato;
+            }
+
+        } catch (IOException | NumberFormatException e) {
+            System.out.println("Errore nel caricamento CSV: " + e.getMessage());
+        }
+        return null;
+    }
+    
 }
