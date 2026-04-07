@@ -16,6 +16,8 @@ public abstract class Imperatore {
     protected String pathImmagine;
     protected int turniProtezione = 0;
     
+    
+    
     public Imperatore(String nome, int salute, int malcontento, int dissenso) {
         this.nome = nome;
         this.salute = salute;
@@ -60,12 +62,30 @@ public abstract class Imperatore {
     
     
     public void applicaEvento(Evento e){
-        this.salute += e.getModSalute();
-        this.dissenso+= e.getModDissenso();
-        this.malcontento+=e.getModMalcontento();
+              
+        int modS = e.getModSalute();
+        int modD = e.getModDissenso();
+        int modM = e.getModMalcontento();
+
+
+        if(turniProtezione > 0){
+            if(modS < 0){
+                modS /= 2;
+            }
+            if(modD > 0){
+                modD /= 2;
+            }
+            if(modM > 0){
+                modM /= 2;
+            } 
+        }
         
-        if(salute > 115){
-            salute=115;
+        this.salute += modS;
+        this.dissenso += modD;
+        this.malcontento += modM;
+        
+        if(salute > 130){
+            salute=130;
         }
         if(malcontento < 0){
             malcontento = 0;
