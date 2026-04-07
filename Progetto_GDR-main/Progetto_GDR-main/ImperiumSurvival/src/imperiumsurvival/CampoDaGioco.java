@@ -21,7 +21,7 @@ public class CampoDaGioco extends javax.swing.JFrame {
      */
     private Imperatore imperatoreCorrente;
     private GameManager gameManager;
-    private FileManager fileManager;
+    private FileManager fileManager = new FileManager();
 
     public CampoDaGioco() {
         initComponents();
@@ -107,7 +107,7 @@ public class CampoDaGioco extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtA_eventi);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(300, 10, 400, 86);
+        jScrollPane1.setBounds(310, 10, 400, 86);
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("IMMAGINI EVENTI");
@@ -130,7 +130,7 @@ public class CampoDaGioco extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_abilitaSpeciale);
-        btn_abilitaSpeciale.setBounds(420, 100, 140, 23);
+        btn_abilitaSpeciale.setBounds(430, 100, 140, 23);
 
         lbl_malcontento.setForeground(new java.awt.Color(255, 255, 255));
         lbl_malcontento.setText("0");
@@ -154,7 +154,7 @@ public class CampoDaGioco extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_salvaSER);
-        btn_salvaSER.setBounds(150, 10, 140, 23);
+        btn_salvaSER.setBounds(160, 10, 140, 23);
 
         btn_salvaCSV.setText("SALVA  CSV");
         btn_salvaCSV.addActionListener(new java.awt.event.ActionListener() {
@@ -163,7 +163,7 @@ public class CampoDaGioco extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_salvaCSV);
-        btn_salvaCSV.setBounds(10, 10, 92, 23);
+        btn_salvaCSV.setBounds(0, 10, 150, 23);
 
         sfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imperiumsurvival/sfondo_battaglia.png"))); // NOI18N
         sfondo.setText("jLabel1");

@@ -42,6 +42,10 @@ public class SchermataIniziale extends javax.swing.JFrame {
         btn_caricaPartita.setOpaque(false);
         btn_caricaPartita.setContentAreaFilled(false);
         btn_caricaPartita.setBorderPainted(false);
+        
+        btn_creaPartita.setOpaque(false);
+        btn_creaPartita.setContentAreaFilled(false);
+        btn_creaPartita.setBorderPainted(false);
     }
 
     /**
