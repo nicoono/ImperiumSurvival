@@ -38,9 +38,9 @@ public class SchermataIniziale extends javax.swing.JFrame {
         
         
         
-        jButton1.setOpaque(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setBorderPainted(false);
+        btn_caricaPartita.setOpaque(false);
+        btn_caricaPartita.setContentAreaFilled(false);
+        btn_caricaPartita.setBorderPainted(false);
     }
 
     /**
@@ -52,21 +52,32 @@ public class SchermataIniziale extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        btn_caricaPartita = new javax.swing.JButton();
+        btn_creaPartita = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jButton1.setFont(new java.awt.Font("Trajan Pro", 0, 24)); // NOI18N
-        jButton1.setText("NUOVA PARTITA");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_caricaPartita.setFont(new java.awt.Font("Trajan Pro", 0, 24)); // NOI18N
+        btn_caricaPartita.setText("CARICA PARTITA");
+        btn_caricaPartita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_caricaPartitaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(440, 290, 260, 70);
+        getContentPane().add(btn_caricaPartita);
+        btn_caricaPartita.setBounds(440, 380, 260, 70);
+
+        btn_creaPartita.setFont(new java.awt.Font("Trajan Pro", 0, 24)); // NOI18N
+        btn_creaPartita.setText("NUOVA PARTITA");
+        btn_creaPartita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_creaPartitaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_creaPartita);
+        btn_creaPartita.setBounds(440, 290, 260, 70);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imperiumsurvival/schermata_iniziale.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -75,12 +86,16 @@ public class SchermataIniziale extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.dispose();
+    private void btn_caricaPartitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_caricaPartitaActionPerformed
+       
+    }//GEN-LAST:event_btn_caricaPartitaActionPerformed
+
+    private void btn_creaPartitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_creaPartitaActionPerformed
+         this.dispose();
         
         ScegliPersonaggio sp = new ScegliPersonaggio();
         sp.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_creaPartitaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,7 +123,8 @@ public class SchermataIniziale extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btn_caricaPartita;
+    private javax.swing.JButton btn_creaPartita;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

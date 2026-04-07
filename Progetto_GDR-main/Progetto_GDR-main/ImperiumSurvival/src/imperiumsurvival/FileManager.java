@@ -87,9 +87,29 @@ public class FileManager {
             }
 
         } catch (IOException | NumberFormatException e) {
-            System.out.println("Errore nel caricamento CSV: " + e.getMessage());
+            System.out.println("Errore nel caricamento CSV");
         }
         return null;
     }
     
+    public void salvaPartitaSER(Imperatore imp, String nomeFile){
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(nomeFile+ ".ser"))){
+            oos.writeObject(imp);
+            System.out.println("salvataggio SER creato");
+        }
+        catch(IOException e){
+            System.out.println("Errore salvataggio SER");
+        }
+    }
+    
+    public Imperatore caricaPartitaSer(String nomeFile){
+        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(nomeFile+ ".ser"))){
+            Imperatore caricato = (Imperatore) ois.readObject();
+            return caricato;
+        }
+        catch(IOException | ClassNotFoundException e){
+            System.out.println("Errore caricamento SER");
+            return null;
+        }
+    }
 }

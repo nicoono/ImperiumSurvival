@@ -73,6 +73,8 @@ public class CampoDaGioco extends javax.swing.JFrame {
         lbl_malcontento = new javax.swing.JLabel();
         lbl_salute = new javax.swing.JLabel();
         lbl_dissenso = new javax.swing.JLabel();
+        btn_salvaSER = new javax.swing.JButton();
+        btn_salvaCSV = new javax.swing.JButton();
         sfondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -142,6 +144,19 @@ public class CampoDaGioco extends javax.swing.JFrame {
         lbl_dissenso.setText("0");
         getContentPane().add(lbl_dissenso);
         lbl_dissenso.setBounds(260, 310, 30, 16);
+
+        btn_salvaSER.setText("SALVA PARTITA SER");
+        getContentPane().add(btn_salvaSER);
+        btn_salvaSER.setBounds(150, 10, 140, 23);
+
+        btn_salvaCSV.setText("SALVA PARTITA CSV");
+        btn_salvaCSV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salvaCSVActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_salvaCSV);
+        btn_salvaCSV.setBounds(10, 10, 137, 23);
 
         sfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imperiumsurvival/sfondo_battaglia.png"))); // NOI18N
         sfondo.setText("jLabel1");
@@ -213,6 +228,10 @@ public class CampoDaGioco extends javax.swing.JFrame {
         btn_abilitaSpeciale.setEnabled(false);
     }//GEN-LAST:event_btn_abilitaSpecialeActionPerformed
 
+    private void btn_salvaCSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvaCSVActionPerformed
+        
+    }//GEN-LAST:event_btn_salvaCSVActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -241,6 +260,8 @@ public class CampoDaGioco extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_abilitaSpeciale;
     private javax.swing.JButton btn_marcia;
+    private javax.swing.JButton btn_salvaCSV;
+    private javax.swing.JButton btn_salvaSER;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
