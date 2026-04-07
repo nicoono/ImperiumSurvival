@@ -6,6 +6,7 @@ package imperiumsurvival;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,6 +21,7 @@ public class CampoDaGioco extends javax.swing.JFrame {
      */
     private Imperatore imperatoreCorrente;
     private GameManager gameManager;
+    private FileManager fileManager;
 
     public CampoDaGioco() {
         initComponents();
@@ -146,6 +148,11 @@ public class CampoDaGioco extends javax.swing.JFrame {
         lbl_dissenso.setBounds(260, 310, 30, 16);
 
         btn_salvaSER.setText("SALVA PARTITA SER");
+        btn_salvaSER.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salvaSERActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_salvaSER);
         btn_salvaSER.setBounds(150, 10, 140, 23);
 
@@ -229,8 +236,17 @@ public class CampoDaGioco extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_abilitaSpecialeActionPerformed
 
     private void btn_salvaCSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvaCSVActionPerformed
+        Imperatore imp = gameManager.getImperatore();
+        fileManager.salvaPartitaCSV(imp, "salvataggio_imperium");
+        JOptionPane.showMessageDialog(this, "Salvataggio CSV effettuato con successo!");
         
     }//GEN-LAST:event_btn_salvaCSVActionPerformed
+
+    private void btn_salvaSERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvaSERActionPerformed
+        Imperatore imp = gameManager.getImperatore();
+        fileManager.salvaPartitaCSV(imp, "salvataggio_imperium");
+        JOptionPane.showMessageDialog(this, "Salvataggio SER effettuato con successo!");
+    }//GEN-LAST:event_btn_salvaSERActionPerformed
 
     /**
      * @param args the command line arguments
