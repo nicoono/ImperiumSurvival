@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 public class Nerone extends Imperatore {
 
     Nerone() {
-        super("Nerone", 100, 10, 30);
+        super("Nerone", 100, 10, 30, 0);
         
         this.pathImmagine = "/imperiumsurvival/Nerone.png";
     }

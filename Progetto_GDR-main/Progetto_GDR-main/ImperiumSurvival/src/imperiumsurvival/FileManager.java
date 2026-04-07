@@ -47,7 +47,7 @@ public class FileManager {
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomeFile + ".csv"))){
             bw.write("Nome,Salute,Malcontento,Dissenso,TurniScudo,TurnoAttuale");
             bw.newLine();
-            bw.write(imp.nome + "," + imp.salute + "," + imp.malcontento + "," + imp.dissenso + "," + imp.turniProtezione + "," + turno + "," + imp.isAbilitaUsata());
+            bw.write(imp.nome + "," + imp.salute + "," + imp.malcontento + "," + imp.dissenso + "," + imp.turniProtezione + "," + turno + "," + imp.isAbilitaUsata() + "," + imp.getMonete());
             System.out.println("Salvataggio CSV creato");
         }
         catch(IOException e){
@@ -68,7 +68,7 @@ public class FileManager {
                 int protezione = Integer.parseInt(dati[4]);
                 int turno = Integer.parseInt(dati[5]);
                 boolean usata = Boolean.parseBoolean(dati[6]); 
-                
+                int monete = Integer.parseInt(dati[7]);
                 
                 Imperatore caricato = null;
                 caricato.setAbilitaUsata(usata);
@@ -88,6 +88,8 @@ public class FileManager {
                     caricato.dissenso = dissenso;
                     caricato.malcontento = malcontento;
                     caricato.turniProtezione = protezione;
+                    caricato.setAbilitaUsata(usata);
+                    caricato.setMonete(monete);
                 }
                 return caricato;
             }

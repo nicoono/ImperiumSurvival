@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 public class MarcoAurelio extends Imperatore {
 
     MarcoAurelio() {
-        super("Marco Aurelio", 115, 20, 30);
+        super("Marco Aurelio", 115, 20, 30, 0);
         
         this.pathImmagine = "/imperiumsurvival/Marco_Aurelio.png";    
     }

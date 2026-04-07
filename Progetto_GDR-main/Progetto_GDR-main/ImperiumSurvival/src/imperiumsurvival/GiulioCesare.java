@@ -14,7 +14,7 @@ public class GiulioCesare extends Imperatore {
 
     public GiulioCesare() {
         // Ora il "super" trova il costruttore corrispondente in Imperatore
-        super("Giulio Cesare", 100, 30, 10); 
+        super("Giulio Cesare", 100, 30, 10, 0); 
         
         this.pathImmagine = "/imperiumsurvival/Giulio_Cesare.png"; 
     }

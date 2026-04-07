@@ -47,9 +47,10 @@ public class CampoDaGioco extends javax.swing.JFrame {
         lbl_pers.setText("");
         
        
-        lbl_salute.setText(String.valueOf(scelto.getSalute()));
-        lbl_dissenso.setText(String.valueOf(scelto.getDissenso()));
-        lbl_malcontento.setText(String.valueOf(scelto.getMalcontento()));
+        lbl_salute.setText(String.valueOf(imperatoreCorrente.getSalute()));
+        lbl_dissenso.setText(String.valueOf(imperatoreCorrente.getDissenso()));
+        lbl_malcontento.setText(String.valueOf(imperatoreCorrente.getMalcontento()));
+        lbl_monete.setText(String.valueOf(imperatoreCorrente.getMonete()));
     }
         
     public void setGameManager(GameManager caricato) {
@@ -60,6 +61,8 @@ public class CampoDaGioco extends javax.swing.JFrame {
         lbl_salute.setText(String.valueOf(imperatoreCorrente.getSalute()));
         lbl_dissenso.setText(String.valueOf(imperatoreCorrente.getDissenso()));
         lbl_malcontento.setText(String.valueOf(imperatoreCorrente.getMalcontento()));
+        lbl_monete.setText(String.valueOf(imperatoreCorrente.getMonete()));
+        
 
         // 2. Aggiorna il log degli eventi
         txtA_eventi.setText(">>> PARTITA CARICATA <<<\n");
@@ -105,11 +108,15 @@ public class CampoDaGioco extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         btn_marcia = new javax.swing.JButton();
         btn_abilitaSpeciale = new javax.swing.JButton();
-        lbl_malcontento = new javax.swing.JLabel();
+        lbl_monete = new javax.swing.JLabel();
         lbl_salute = new javax.swing.JLabel();
         lbl_dissenso = new javax.swing.JLabel();
         btn_salvaSER = new javax.swing.JButton();
         btn_salvaCSV = new javax.swing.JButton();
+        btn_pagaPopolo = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        lbl_malcontento = new javax.swing.JLabel();
+        btn_pagaDissenso = new javax.swing.JButton();
         sfondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -165,10 +172,10 @@ public class CampoDaGioco extends javax.swing.JFrame {
         getContentPane().add(btn_abilitaSpeciale);
         btn_abilitaSpeciale.setBounds(430, 100, 140, 23);
 
-        lbl_malcontento.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_malcontento.setText("0");
-        getContentPane().add(lbl_malcontento);
-        lbl_malcontento.setBounds(280, 340, 30, 16);
+        lbl_monete.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_monete.setText("0");
+        getContentPane().add(lbl_monete);
+        lbl_monete.setBounds(240, 370, 30, 16);
 
         lbl_salute.setForeground(new java.awt.Color(255, 255, 255));
         lbl_salute.setText("0");
@@ -198,6 +205,34 @@ public class CampoDaGioco extends javax.swing.JFrame {
         getContentPane().add(btn_salvaCSV);
         btn_salvaCSV.setBounds(0, 10, 150, 23);
 
+        btn_pagaPopolo.setText("PAGA POPOLO");
+        btn_pagaPopolo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_pagaPopoloActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_pagaPopolo);
+        btn_pagaPopolo.setBounds(370, 340, 140, 20);
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("MONETE:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(180, 370, 60, 16);
+
+        lbl_malcontento.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_malcontento.setText("0");
+        getContentPane().add(lbl_malcontento);
+        lbl_malcontento.setBounds(280, 340, 30, 16);
+
+        btn_pagaDissenso.setText("PAGA ESERCITO");
+        btn_pagaDissenso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_pagaDissensoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_pagaDissenso);
+        btn_pagaDissenso.setBounds(370, 310, 140, 20);
+
         sfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imperiumsurvival/sfondo_battaglia.png"))); // NOI18N
         sfondo.setText("jLabel1");
         getContentPane().add(sfondo);
@@ -221,7 +256,7 @@ public class CampoDaGioco extends javax.swing.JFrame {
             lbl_salute.setText(String.valueOf(gameManager.getImperatore().getSalute()));
             lbl_dissenso.setText(String.valueOf(gameManager.getImperatore().getDissenso()));
             lbl_malcontento.setText(String.valueOf(gameManager.getImperatore().getMalcontento()));
-            
+            lbl_monete.setText(String.valueOf(gameManager.getImperatore().getMonete()));
             
             if(gameManager.controllaGameOver() == 1){
                 //salva su classifica
@@ -281,6 +316,21 @@ public class CampoDaGioco extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Salvataggio SER effettuato con successo!");
     }//GEN-LAST:event_btn_salvaSERActionPerformed
 
+    private void btn_pagaPopoloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pagaPopoloActionPerformed
+        gameManager.pagaPopolo();
+        
+        lbl_malcontento.setText(String.valueOf(gameManager.getImperatore().getMalcontento()));
+        lbl_monete.setText(String.valueOf(gameManager.getImperatore().getMonete()));
+        
+    }//GEN-LAST:event_btn_pagaPopoloActionPerformed
+
+    private void btn_pagaDissensoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pagaDissensoActionPerformed
+        gameManager.pagaEsercito();
+        
+        lbl_dissenso.setText(String.valueOf(gameManager.getImperatore().getDissenso()));
+        lbl_monete.setText(String.valueOf(gameManager.getImperatore().getMonete()));
+    }//GEN-LAST:event_btn_pagaDissensoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -309,8 +359,11 @@ public class CampoDaGioco extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_abilitaSpeciale;
     private javax.swing.JButton btn_marcia;
+    private javax.swing.JButton btn_pagaDissenso;
+    private javax.swing.JButton btn_pagaPopolo;
     private javax.swing.JButton btn_salvaCSV;
     private javax.swing.JButton btn_salvaSER;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -318,6 +371,7 @@ public class CampoDaGioco extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_dissenso;
     private javax.swing.JLabel lbl_malcontento;
+    private javax.swing.JLabel lbl_monete;
     private javax.swing.JLabel lbl_pers;
     private javax.swing.JLabel lbl_salute;
     private javax.swing.JLabel sfondo;

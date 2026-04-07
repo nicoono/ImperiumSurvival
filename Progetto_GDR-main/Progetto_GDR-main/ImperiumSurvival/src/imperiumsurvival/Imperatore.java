@@ -16,13 +16,14 @@ public abstract class Imperatore implements java.io.Serializable{
     protected String pathImmagine;
     protected int turniProtezione = 0;
     protected boolean abilitaUsata = false;
+    protected int monete = 0;
     
-    
-    public Imperatore(String nome, int salute, int malcontento, int dissenso) {
+    public Imperatore(String nome, int salute, int malcontento, int dissenso, int monete) {
         this.nome = nome;
         this.salute = salute;
         this.malcontento = malcontento;
         this.dissenso = dissenso;
+        this.monete= monete;
     }
 
     public int getSalute() {
@@ -107,4 +108,27 @@ public abstract class Imperatore implements java.io.Serializable{
         }
         
     }
+    
+    
+    public void aggiungiMonete(int quantita){
+        this.monete += quantita;
+    }
+
+    public int getMonete() {
+        return monete;
+    }
+
+    public void setMonete(int monete) {
+        this.monete = monete;
+    }
+
+    public void setMalcontento(int malcontento) {
+        this.malcontento = malcontento;
+    }
+
+    public void setDissenso(int dissenso) {
+        this.dissenso = dissenso;
+    }
+    
+    
 }
