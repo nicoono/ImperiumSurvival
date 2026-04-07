@@ -20,8 +20,8 @@ public class Evento {
         this.titolo = titolo;
         this.logMessaggio = logMessaggio;
         this.modSalute = modSalute;
-        this.modMalcontento = modMalcontento;
         this.modDissenso = modDissenso;
+        this.modMalcontento = modMalcontento; 
         this.pahtImmagine = pahtImmagine;
     }
 

@@ -4,6 +4,8 @@
  */
 package imperiumsurvival;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author onorati.nicolo
@@ -11,13 +13,17 @@ package imperiumsurvival;
 public class MarcoAurelio extends Imperatore {
 
     MarcoAurelio() {
-        super("Nerone", 115, 40, 50);
+        super("Marco Aurelio", 115, 40, 50);
         
         this.pathImmagine = "/imperiumsurvival/Marco_Aurelio.png";    
     }
 
     @Override
     public void usaAbilita() {
+        if(turniProtezione ==0){
+            this.turniProtezione = 3;
+            JOptionPane.showMessageDialog(null, "Marco Aurelio entra in meditazione\n" + "statistiche bloccate e danni dimezzati per 3 turni");
+        }
     }
     
 }

@@ -37,7 +37,7 @@ public class FileManager {
         catch(IOException e){
             System.out.println("Errore nella lettura del file");
         }
-        //System.out.println("DEBUG: Ho letto " + listaEventi.size() + " eventi dal file.");
+        
         return listaEventi;
     }
 }

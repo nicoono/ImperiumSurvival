@@ -14,6 +14,7 @@ public abstract class Imperatore {
     protected int malcontento;
     protected int dissenso;
     protected String pathImmagine;
+    protected int turniProtezione = 0;
     
     public Imperatore(String nome, int salute, int malcontento, int dissenso) {
         this.nome = nome;
@@ -43,8 +44,14 @@ public abstract class Imperatore {
     
     
     public void aggiornaStstusTurno(){
-        malcontento += 5;
-        dissenso+=5;
+        if(turniProtezione > 0){
+            turniProtezione--;
+        }
+        else{
+            malcontento += 5;
+            dissenso+=5;
+        }
+        
         
         
     }
