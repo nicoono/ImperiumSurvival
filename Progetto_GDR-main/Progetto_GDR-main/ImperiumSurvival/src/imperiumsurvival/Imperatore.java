@@ -8,14 +8,14 @@ package imperiumsurvival;
  *
  * @author onorati.nicolo
  */
-public abstract class Imperatore {
+public abstract class Imperatore implements java.io.Serializable{
     protected String nome;
     protected int salute;
     protected int malcontento;
     protected int dissenso;
     protected String pathImmagine;
     protected int turniProtezione = 0;
-    
+    protected boolean abilitaUsata = false;
     
     
     public Imperatore(String nome, int salute, int malcontento, int dissenso) {
@@ -37,6 +37,12 @@ public abstract class Imperatore {
         return dissenso;
     }
     
+    public boolean isAbilitaUsata() {
+        return abilitaUsata;
+    }
+    public void setAbilitaUsata(boolean stato) {
+        this.abilitaUsata = stato;
+    }
     
     public String getPathImmagine() {
         return pathImmagine;

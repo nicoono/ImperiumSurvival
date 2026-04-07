@@ -1,2 +1,2 @@
-Nome,Salute,Malcontento,Dissenso,TurniScudo
-Marco Aurelio,65,35,55,0
+Nome,Salute,Malcontento,Dissenso,TurniScudo,TurnoAttuale
+Augusto,100,70,40,0,7,true

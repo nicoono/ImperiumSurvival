@@ -41,11 +41,13 @@ public class FileManager {
         return listaEventi;
     }
     
-    public void salvaPartitaCSV(Imperatore imp, String nomeFile){
+    public void salvaPartitaCSV(GameManager gm , String nomeFile){
+        Imperatore imp = gm.getImperatore();
+        int turno = gm.getTurno();
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomeFile + ".csv"))){
-            bw.write("Nome,Salute,Malcontento,Dissenso,TurniScudo");
+            bw.write("Nome,Salute,Malcontento,Dissenso,TurniScudo,TurnoAttuale");
             bw.newLine();
-            bw.write(imp.nome + "," + imp.salute + "," + imp.malcontento + "," + imp.dissenso + "," + imp.turniProtezione);
+            bw.write(imp.nome + "," + imp.salute + "," + imp.malcontento + "," + imp.dissenso + "," + imp.turniProtezione + "," + turno + "," + imp.isAbilitaUsata());
             System.out.println("Salvataggio CSV creato");
         }
         catch(IOException e){
@@ -64,8 +66,12 @@ public class FileManager {
                 int malcontento = Integer.parseInt(dati[2]);
                 int dissenso = Integer.parseInt(dati[3]);
                 int protezione = Integer.parseInt(dati[4]);
-
+                int turno = Integer.parseInt(dati[5]);
+                boolean usata = Boolean.parseBoolean(dati[6]); 
+                
+                
                 Imperatore caricato = null;
+                caricato.setAbilitaUsata(usata);
 
                 if (nome.equals("Augusto")) {
                     caricato = new Augusto();
@@ -92,9 +98,9 @@ public class FileManager {
         return null;
     }
     
-    public void salvaPartitaSER(Imperatore imp, String nomeFile){
+    public void salvaPartitaSER(GameManager gm, String nomeFile){
         try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(nomeFile+ ".ser"))){
-            oos.writeObject(imp);
+            oos.writeObject(gm);
             System.out.println("salvataggio SER creato");
         }
         catch(IOException e){
@@ -102,9 +108,9 @@ public class FileManager {
         }
     }
     
-    public Imperatore caricaPartitaSer(String nomeFile){
+    public GameManager caricaPartitaSer(String nomeFile){
         try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(nomeFile+ ".ser"))){
-            Imperatore caricato = (Imperatore) ois.readObject();
+            GameManager caricato = (GameManager) ois.readObject();
             return caricato;
         }
         catch(IOException | ClassNotFoundException e){

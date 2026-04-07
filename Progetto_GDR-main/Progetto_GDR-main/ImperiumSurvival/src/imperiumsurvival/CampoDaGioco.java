@@ -52,7 +52,40 @@ public class CampoDaGioco extends javax.swing.JFrame {
         lbl_malcontento.setText(String.valueOf(scelto.getMalcontento()));
     }
         
-             
+    public void setGameManager(GameManager caricato) {
+        this.gameManager = caricato;
+        this.imperatoreCorrente = caricato.getImperatore();
+
+        // 1. Aggiorna i testi delle statistiche
+        lbl_salute.setText(String.valueOf(imperatoreCorrente.getSalute()));
+        lbl_dissenso.setText(String.valueOf(imperatoreCorrente.getDissenso()));
+        lbl_malcontento.setText(String.valueOf(imperatoreCorrente.getMalcontento()));
+
+        // 2. Aggiorna il log degli eventi
+        txtA_eventi.setText(">>> PARTITA CARICATA <<<\n");
+        txtA_eventi.append("Turno attuale: " + gameManager.getTurno() + "\n");
+        txtA_eventi.append("---------------------------------\n");
+
+        // 3. Gestione Abilità Speciale (NOVITÀ)
+        // Se l'imperatore ha già usato l'abilità, disattiviamo il bottone
+        if (imperatoreCorrente.isAbilitaUsata()) {
+            btn_abilitaSpeciale.setEnabled(false);
+            btn_abilitaSpeciale.setText("ABILITA' USATA");
+        } else {
+            btn_abilitaSpeciale.setEnabled(true);
+            btn_abilitaSpeciale.setText("ABILITA' SPECIALE");
+        }
+
+        // 4. Ripristina l'immagine del personaggio
+        try {
+            ImageIcon icon = new ImageIcon(getClass().getResource(imperatoreCorrente.getPathImmagine()));
+            Image img = icon.getImage().getScaledInstance(lbl_pers.getWidth(), lbl_pers.getHeight(), Image.SCALE_SMOOTH);
+            lbl_pers.setIcon(new ImageIcon(img));
+            lbl_pers.setText("");
+        } catch (Exception e) {
+            System.out.println("Errore ripristino immagine caricamento: " + e.getMessage());
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -237,14 +270,14 @@ public class CampoDaGioco extends javax.swing.JFrame {
 
     private void btn_salvaCSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvaCSVActionPerformed
         Imperatore imp = gameManager.getImperatore();
-        fileManager.salvaPartitaCSV(imp, "salvataggio_imperium");
+        fileManager.salvaPartitaCSV(gameManager, "salvataggio_imperium");
         JOptionPane.showMessageDialog(this, "Salvataggio CSV effettuato con successo!");
         
     }//GEN-LAST:event_btn_salvaCSVActionPerformed
 
     private void btn_salvaSERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvaSERActionPerformed
         Imperatore imp = gameManager.getImperatore();
-        fileManager.salvaPartitaCSV(imp, "salvataggio_imperium");
+        fileManager.salvaPartitaSER(gameManager, "salvataggio_imperium");
         JOptionPane.showMessageDialog(this, "Salvataggio SER effettuato con successo!");
     }//GEN-LAST:event_btn_salvaSERActionPerformed
 

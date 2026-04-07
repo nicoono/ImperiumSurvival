@@ -93,12 +93,12 @@ public class SchermataIniziale extends javax.swing.JFrame {
 
     private void btn_caricaPartitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_caricaPartitaActionPerformed
        FileManager fm = new FileManager();
-       Imperatore caricato = fm.caricaPartitaCSV("salvataggio_imperium");
+       GameManager caricato = fm.caricaPartitaSer("salvataggio_imperium");
        
        if(caricato != null){
            this.dispose();
            CampoDaGioco cg = new CampoDaGioco();
-           cg.setImperatore(caricato);
+           cg.setGameManager(caricato);
            cg.setVisible(true);
            
            JOptionPane.showMessageDialog(cg, "Bentornato, imperatore! Partita caricata.");

@@ -8,7 +8,7 @@ package imperiumsurvival;
  *
  * @author onorati.nicolo
  */
-public class Evento {
+public class Evento implements java.io.Serializable{
     private String titolo;
     private String logMessaggio;
     private int modSalute;

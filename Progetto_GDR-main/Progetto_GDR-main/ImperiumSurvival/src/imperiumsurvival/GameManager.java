@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  *
  * @author onorati.nicolo
  */
-public class GameManager {
+public class GameManager implements java.io.Serializable {
     private int turno;
     private Imperatore giocatore;
     private List<Evento> eventiDisponibili;
@@ -67,6 +67,7 @@ public class GameManager {
     }
     public void cliccaAbilita(){
         giocatore.usaAbilita();
+        giocatore.setAbilitaUsata(true);
         controllaGameOver();
     }
     
