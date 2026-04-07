@@ -4,6 +4,8 @@
  */
 package imperiumsurvival;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author onorati.nicolo
@@ -19,10 +21,11 @@ public class GiulioCesare extends Imperatore {
 
     @Override
     public void usaAbilita() {
-        // Alea Iacta Est: Azzera il Malcontento, ma +20 Dissenso Militare.
+        JOptionPane.showMessageDialog(null,"Giulio Cesare ha varcato il Rubicone: Alea Iacta Est!\n" + "Il popolo esulta (Malcontento a 0), ma il Senato trama vendetta (Dissenso +20).");
         this.malcontento = 0;
         this.dissenso += 20;
     }
+    
     
     
 }
