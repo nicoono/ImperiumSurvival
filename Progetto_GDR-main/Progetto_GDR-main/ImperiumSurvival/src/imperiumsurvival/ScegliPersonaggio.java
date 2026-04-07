@@ -108,7 +108,7 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        btn_istruzioni = new javax.swing.JButton();
+        btn_preambolo = new javax.swing.JButton();
         lbl_titolo = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -117,6 +117,7 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
         btn_car_a = new javax.swing.JButton();
         btn_car_n = new javax.swing.JButton();
         btn_car_ma = new javax.swing.JButton();
+        btn_regolamento = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -132,14 +133,14 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(885, 186, 171, 320);
 
-        btn_istruzioni.setText("ISTRUZIONI");
-        btn_istruzioni.addActionListener(new java.awt.event.ActionListener() {
+        btn_preambolo.setText("PREAMBOLO");
+        btn_preambolo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_istruzioniActionPerformed(evt);
+                btn_preamboloActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_istruzioni);
-        btn_istruzioni.setBounds(990, 0, 130, 23);
+        getContentPane().add(btn_preambolo);
+        btn_preambolo.setBounds(990, 0, 130, 23);
 
         lbl_titolo.setFont(new java.awt.Font("Trajan Pro", 0, 48)); // NOI18N
         lbl_titolo.setForeground(new java.awt.Color(153, 153, 153));
@@ -217,6 +218,15 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
         getContentPane().add(btn_car_ma);
         btn_car_ma.setBounds(884, 510, 170, 23);
 
+        btn_regolamento.setText("REGOLAMENTO");
+        btn_regolamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_regolamentoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_regolamento);
+        btn_regolamento.setBounds(990, 30, 130, 23);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imperiumsurvival/fondo.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
@@ -234,7 +244,7 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void btn_istruzioniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_istruzioniActionPerformed
+    private void btn_preamboloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_preamboloActionPerformed
         JOptionPane.showMessageDialog(null, "IL DESTINO DI ROMA\n\n"
             + "Siamo nel cuore dell'Impero. Le frontiere vacillano sotto la pressione dei barbari,\n"
             + "mentre all'interno delle mura il potere è un veleno che corrompe ogni anima.\n\n"
@@ -242,7 +252,7 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
             + "Quattro grandi uomini potrebbero cambiare il corso della storia, ma solo uno\n"
             + "prenderà il comando. La tua scelta segnerà l'eternità.\n\n"
             + "Scegli con saggezza: ogni Imperatore ha punti di forza e oscuri segreti.");
-    }//GEN-LAST:event_btn_istruzioniActionPerformed
+    }//GEN-LAST:event_btn_preamboloActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         CampoDaGioco finestraGioco = new CampoDaGioco();
@@ -333,6 +343,26 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btn_regolamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regolamentoActionPerformed
+        JOptionPane.showMessageDialog(this,
+                "🏛️ BENVENUTO IN IMPERIUM SURVIVAL 🏛️\n\n"
+                + "Il tuo obiettivo è sopravvivere il più a lungo possibile sul trono di Roma.\n\n"
+                + "📊 STATISTICHE PRINCIPALI:\n"
+                + "• SALUTE: Se arriva a 0, muori per malattia o attentato.\n"
+                + "• DISSENSO: Rappresenta l'ira dei militari. A 100 verrai deposto dai pretoriani.\n"
+                + "• MALCONTENTO: Rappresenta la rabbia del popolo. A 100 scoppierà una rivolta.\n\n"
+                + "💰 ECONOMIA E TURNI:\n"
+                + "• Ogni volta che clicchi 'MARCIA', guadagni 1 MONETA e affronti un evento.\n"
+                + "• PAGA POPOLO (4 monete): Riduce il Malcontento di 15 punti.\n"
+                + "• PAGA ESERCITO (4 monete): Riduce il Dissenso di 15 punti.\n\n"
+                + "🌟 ABILITÀ SPECIALE:\n"
+                + "• Ogni Imperatore ha un potere unico utilizzabile UNA SOLA VOLTA per partita.\n"
+                + "• Usala con saggezza nei momenti di crisi!\n\n"
+                + "💾 SALVATAGGIO:\n"
+                + "• Puoi salvare in CSV (leggibile) o SER (binario) per riprendere la scalata al potere.",
+                "Regolamento Imperiale", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btn_regolamentoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -363,7 +393,8 @@ public class ScegliPersonaggio extends javax.swing.JFrame {
     private javax.swing.JButton btn_car_gc;
     private javax.swing.JButton btn_car_ma;
     private javax.swing.JButton btn_car_n;
-    private javax.swing.JButton btn_istruzioni;
+    private javax.swing.JButton btn_preambolo;
+    private javax.swing.JButton btn_regolamento;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

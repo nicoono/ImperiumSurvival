@@ -100,8 +100,8 @@ public class GameManager implements java.io.Serializable {
     }
 
     public void pagaPopolo() {
-        if (giocatore.getMonete() >= 3) {
-            giocatore.setMonete(giocatore.getMonete() - 3);
+        if (giocatore.getMonete() >= 4) {
+            giocatore.setMonete(giocatore.getMonete() - 4);
 
             int nuovoMalcontento = giocatore.getMalcontento() - 15;
             giocatore.setMalcontento(Math.max(0, nuovoMalcontento));
@@ -113,8 +113,8 @@ public class GameManager implements java.io.Serializable {
     }
     
     public void pagaEsercito() {
-        if (giocatore.getMonete() >= 3) {
-            giocatore.setMonete(giocatore.getMonete() - 3);
+        if (giocatore.getMonete() >= 4) {
+            giocatore.setMonete(giocatore.getMonete() - 4);
 
             int nuovoDissenso = giocatore.getDissenso() - 15;
             giocatore.setDissenso(Math.max(0, nuovoDissenso));
