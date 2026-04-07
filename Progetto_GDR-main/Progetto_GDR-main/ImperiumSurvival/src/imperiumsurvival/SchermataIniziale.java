@@ -6,6 +6,7 @@ package imperiumsurvival;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -87,7 +88,20 @@ public class SchermataIniziale extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_caricaPartitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_caricaPartitaActionPerformed
+       FileManager fm = new FileManager();
+       Imperatore caricato = fm.caricaPartitaCSV("salvataggio_imperium");
        
+       if(caricato != null){
+           this.dispose();
+           CampoDaGioco cg = new CampoDaGioco();
+           cg.setImperatore(caricato);
+           cg.setVisible(true);
+           
+           JOptionPane.showMessageDialog(cg, "Bentornato, imperatore! Partita caricata.");
+       }
+       else{
+           JOptionPane.showMessageDialog(this, "Nessun salvataggio trovato o file corrotto!", "Errore", javax.swing.JOptionPane.ERROR_MESSAGE);
+       }
     }//GEN-LAST:event_btn_caricaPartitaActionPerformed
 
     private void btn_creaPartitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_creaPartitaActionPerformed

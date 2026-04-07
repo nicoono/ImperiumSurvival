@@ -147,7 +147,7 @@ public class CampoDaGioco extends javax.swing.JFrame {
         getContentPane().add(lbl_dissenso);
         lbl_dissenso.setBounds(260, 310, 30, 16);
 
-        btn_salvaSER.setText("SALVA PARTITA SER");
+        btn_salvaSER.setText("SALVA  SER");
         btn_salvaSER.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salvaSERActionPerformed(evt);
@@ -156,14 +156,14 @@ public class CampoDaGioco extends javax.swing.JFrame {
         getContentPane().add(btn_salvaSER);
         btn_salvaSER.setBounds(150, 10, 140, 23);
 
-        btn_salvaCSV.setText("SALVA PARTITA CSV");
+        btn_salvaCSV.setText("SALVA  CSV");
         btn_salvaCSV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salvaCSVActionPerformed(evt);
             }
         });
         getContentPane().add(btn_salvaCSV);
-        btn_salvaCSV.setBounds(10, 10, 137, 23);
+        btn_salvaCSV.setBounds(10, 10, 92, 23);
 
         sfondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imperiumsurvival/sfondo_battaglia.png"))); // NOI18N
         sfondo.setText("jLabel1");
