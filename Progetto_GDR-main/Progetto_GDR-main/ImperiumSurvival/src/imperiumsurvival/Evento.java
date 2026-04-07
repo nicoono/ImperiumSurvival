@@ -16,7 +16,7 @@ public class Evento {
     private int modDissenso;
     private String pahtImmagine;
 
-    public Evento(String titolo, String logMessaggio, int modSalute, int Malcontento, int modDissenso, String pahtImmagine) {
+    public Evento(String titolo, String logMessaggio, int modSalute, int modDissenso, int modMalcontento, String pahtImmagine) {
         this.titolo = titolo;
         this.logMessaggio = logMessaggio;
         this.modSalute = modSalute;
