@@ -39,13 +39,17 @@ public class SchermataIniziale extends javax.swing.JFrame {
         
         
         
-        btn_caricaPartita.setOpaque(false);
-        btn_caricaPartita.setContentAreaFilled(false);
-        btn_caricaPartita.setBorderPainted(false);
+        btn_caricaPartitaSER.setOpaque(false);
+        btn_caricaPartitaSER.setContentAreaFilled(false);
+        btn_caricaPartitaSER.setBorderPainted(false);
         
         btn_creaPartita.setOpaque(false);
         btn_creaPartita.setContentAreaFilled(false);
         btn_creaPartita.setBorderPainted(false);
+        
+        btn_caricaPartitaCSV.setOpaque(false);
+        btn_caricaPartitaCSV.setContentAreaFilled(false);
+        btn_caricaPartitaCSV.setBorderPainted(false);
     }
 
     /**
@@ -57,24 +61,27 @@ public class SchermataIniziale extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btn_caricaPartita = new javax.swing.JButton();
+        btn_caricaPartitaSER = new javax.swing.JButton();
         btn_creaPartita = new javax.swing.JButton();
+        btn_caricaPartitaCSV = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        btn_caricaPartita.setFont(new java.awt.Font("Trajan Pro", 0, 24)); // NOI18N
-        btn_caricaPartita.setText("CARICA PARTITA");
-        btn_caricaPartita.addActionListener(new java.awt.event.ActionListener() {
+        btn_caricaPartitaSER.setFont(new java.awt.Font("Trajan Pro", 0, 24)); // NOI18N
+        btn_caricaPartitaSER.setForeground(new java.awt.Color(255, 255, 255));
+        btn_caricaPartitaSER.setText("CARICA PARTITA SER");
+        btn_caricaPartitaSER.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_caricaPartitaActionPerformed(evt);
+                btn_caricaPartitaSERActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_caricaPartita);
-        btn_caricaPartita.setBounds(440, 380, 260, 70);
+        getContentPane().add(btn_caricaPartitaSER);
+        btn_caricaPartitaSER.setBounds(410, 390, 320, 70);
 
         btn_creaPartita.setFont(new java.awt.Font("Trajan Pro", 0, 24)); // NOI18N
+        btn_creaPartita.setForeground(new java.awt.Color(255, 255, 255));
         btn_creaPartita.setText("NUOVA PARTITA");
         btn_creaPartita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,7 +89,18 @@ public class SchermataIniziale extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_creaPartita);
-        btn_creaPartita.setBounds(440, 290, 260, 70);
+        btn_creaPartita.setBounds(410, 290, 320, 70);
+
+        btn_caricaPartitaCSV.setFont(new java.awt.Font("Trajan Pro", 0, 24)); // NOI18N
+        btn_caricaPartitaCSV.setForeground(new java.awt.Color(255, 255, 255));
+        btn_caricaPartitaCSV.setText("CARICA PARTITA CSV");
+        btn_caricaPartitaCSV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_caricaPartitaCSVActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_caricaPartitaCSV);
+        btn_caricaPartitaCSV.setBounds(410, 490, 320, 70);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imperiumsurvival/schermata_iniziale.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -91,7 +109,7 @@ public class SchermataIniziale extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_caricaPartitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_caricaPartitaActionPerformed
+    private void btn_caricaPartitaSERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_caricaPartitaSERActionPerformed
        FileManager fm = new FileManager();
        GameManager caricato = fm.caricaPartitaSer("salvataggio_imperium");
        
@@ -106,7 +124,7 @@ public class SchermataIniziale extends javax.swing.JFrame {
        else{
            JOptionPane.showMessageDialog(this, "Nessun salvataggio trovato o file corrotto!", "Errore", javax.swing.JOptionPane.ERROR_MESSAGE);
        }
-    }//GEN-LAST:event_btn_caricaPartitaActionPerformed
+    }//GEN-LAST:event_btn_caricaPartitaSERActionPerformed
 
     private void btn_creaPartitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_creaPartitaActionPerformed
          this.dispose();
@@ -114,6 +132,23 @@ public class SchermataIniziale extends javax.swing.JFrame {
         ScegliPersonaggio sp = new ScegliPersonaggio();
         sp.setVisible(true);
     }//GEN-LAST:event_btn_creaPartitaActionPerformed
+
+    private void btn_caricaPartitaCSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_caricaPartitaCSVActionPerformed
+        FileManager fm = new FileManager();
+       GameManager caricato = fm.caricaPartitaCSV("salvataggio_imperium");
+       
+       if(caricato != null){
+           this.dispose();
+           CampoDaGioco cg = new CampoDaGioco();
+           cg.setGameManager(caricato);
+           cg.setVisible(true);
+           
+           JOptionPane.showMessageDialog(cg, "Bentornato, imperatore! Partita caricata.");
+       }
+       else{
+           JOptionPane.showMessageDialog(this, "Nessun salvataggio trovato o file corrotto!", "Errore", javax.swing.JOptionPane.ERROR_MESSAGE);
+       }
+    }//GEN-LAST:event_btn_caricaPartitaCSVActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,7 +176,8 @@ public class SchermataIniziale extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_caricaPartita;
+    private javax.swing.JButton btn_caricaPartitaCSV;
+    private javax.swing.JButton btn_caricaPartitaSER;
     private javax.swing.JButton btn_creaPartita;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

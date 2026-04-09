@@ -54,9 +54,9 @@ public class FileManager {
             System.out.println("Errore salvataggio CSV");
         }
     }
-    public Imperatore caricaPartitaCSV(String nomeFile) {
+    public GameManager caricaPartitaCSV(String nomeFile) {
         try (BufferedReader br = new BufferedReader(new FileReader(nomeFile + ".csv"))) {
-            br.readLine();
+            br.readLine(); // Salta l'intestazione
             String riga = br.readLine();
 
             if (riga != null) {
@@ -66,36 +66,36 @@ public class FileManager {
                 int malcontento = Integer.parseInt(dati[2]);
                 int dissenso = Integer.parseInt(dati[3]);
                 int protezione = Integer.parseInt(dati[4]);
-                int turno = Integer.parseInt(dati[5]);
-                boolean usata = Boolean.parseBoolean(dati[6]); 
+                int turnoSalvato = Integer.parseInt(dati[5]);
+                boolean usata = Boolean.parseBoolean(dati[6]);
                 int monete = Integer.parseInt(dati[7]);
-                
-                Imperatore caricato = null;
-                caricato.setAbilitaUsata(usata);
 
+                Imperatore imp = null;
                 if (nome.equals("Augusto")) {
-                    caricato = new Augusto();
+                    imp = new Augusto();
                 } else if (nome.equals("Giulio Cesare")) {
-                    caricato = new GiulioCesare();
+                    imp = new GiulioCesare();
                 } else if (nome.equals("Nerone")) {
-                    caricato = new Nerone();
+                    imp = new Nerone();
                 } else if (nome.equals("Marco Aurelio")) {
-                    caricato = new MarcoAurelio();
+                    imp = new MarcoAurelio();
                 }
 
-                if (caricato != null) {
-                    caricato.salute = salute;
-                    caricato.dissenso = dissenso;
-                    caricato.malcontento = malcontento;
-                    caricato.turniProtezione = protezione;
-                    caricato.setAbilitaUsata(usata);
-                    caricato.setMonete(monete);
+                if (imp != null) {
+                    imp.salute = salute;
+                    imp.dissenso = dissenso;
+                    imp.malcontento = malcontento;
+                    imp.turniProtezione = protezione;
+                    imp.setAbilitaUsata(usata);
+                    imp.setMonete(monete);
+                    GameManager gm = new GameManager(imp);
+                    gm.setTurno(turnoSalvato);
+
+                    return gm;
                 }
-                return caricato;
             }
-
         } catch (IOException | NumberFormatException e) {
-            System.out.println("Errore nel caricamento CSV");
+            System.out.println("Errore nel caricamento CSV: " + e.getMessage());
         }
         return null;
     }
